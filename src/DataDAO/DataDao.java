@@ -1,23 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package DAO;
+package DataDAO;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.*;
 
-/**
- *
- * @author Phuc Anh
- */
 public class DataDao {
-    public static Connection conn = null;
+	public static Connection conn = null;
     public static  Statement st = null;
     public static ResultSet rs = null;
 

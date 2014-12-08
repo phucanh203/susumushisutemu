@@ -1,4 +1,0 @@
-susumushisutemu
-===============
-
-susumu shisutemu

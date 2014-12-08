@@ -1,22 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package DAO;
+package DataDAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-/**
- *
- * @author Phuc Anh
- */
 public class ConnectDB {
-    private static String url = "";
+	private static String url = "";
 
 	private static String databaseName = "";
 
@@ -34,17 +23,16 @@ public class ConnectDB {
 		Config();
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                    try {
-                        conn = DriverManager.getConnection(url, userName, password);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ConnectDB.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+			conn = DriverManager.getConnection(url, userName, password);
 		}
 		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return conn;
 	}
 

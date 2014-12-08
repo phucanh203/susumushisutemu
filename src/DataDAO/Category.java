@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package DAO;
+package DataDAO;
 
-/**
- *
- * @author Phuc Anh
- */
 public class Category {
-    private String CategoryID;
+	private String CategoryID;
 	private String CategoryName;
 	private String Link;
 	
