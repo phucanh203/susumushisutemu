@@ -62,7 +62,7 @@ public class DataDao {
 
     public static void AddNewApp(Application app) {
     	conn = ConnectDB.Connect();
-        String sql = "Insert Into Application(Name,CategoryID, Description, Version) values(?,?,?,?)";
+        String sql = "Insert Into Application(Name,CategoryID, Description, Version,AppID,Size,LinkDetail,LinkApk) values(?,?,?,?,?,?,?,?)";
         PreparedStatement ps;
         try {
 			ps = conn.prepareStatement(sql);
@@ -70,6 +70,12 @@ public class DataDao {
 			ps.setString(2, app.getCategoryID());
 	        ps.setString(3, app.getDescription());
 	        ps.setString(4, app.getVersion());
+	        ps.setString(5, app.getAppID());
+	        ps.setString(6, app.getSize());
+	        ps.setString(7, app.getLinkDetail());
+	        ps.setString(8, app.getLinkApk());
+	        java.sql.Timestamp timeStamp = new java.sql.Timestamp(app.getUpdatedDate().getTime());
+	        ps.setTimestamp(9, timeStamp);
 	        if(ps.executeUpdate() == 1)
 	        {
 	        	System.out.println("Success!");

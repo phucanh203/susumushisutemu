@@ -18,14 +18,14 @@ public class main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		getAllGameCategory();
 		// getCategory();
 	}
 
 	public static void getCategory() {
 		Document doc;
-		Document detail;
+	
 		String url = "http://www.mobogenie.com/games/categories-0-downloads_1";
 		try {
 			doc = Jsoup.connect(url).get();
@@ -51,7 +51,7 @@ public class main {
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			System.out.println(e.getMessage());
 		}
 	}
@@ -144,12 +144,17 @@ public class main {
 						}
 
 						if (text.attr("class").toString().equals("details c-6")) {
-							// app.setDescription(text.text().toString());
 							app.setAppDetailByElement(text);
 
 						}
 					}
-					// DataDao.AddNewApp(app);
+					Elements files = detail.getElementsByAttributeValue("class", "g-btn g-btn1 p-download");
+					for(Element file : files)
+					{
+						app.setLinkApk(file.attr("genie-url"));
+						System.out.println("Link Apk: " + file.attr("genie-url"));
+					}
+					 DataDao.AddNewApp(app);
 					System.out
 							.println("--------------------------------------------");
 				}
